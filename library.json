@@ -1,22 +1,18 @@
 {
-    "name": "ArduinoTaskManager",
-    "version": "0.1.0",
-    "description": "Manage many tasks execution centralized by software timers",
-    "keywords": "task, manager, arduino",
-    "repository":
-    {
-      "type": "git",
-      "url": "https://github.com/Gogicool-geek/ArduinoTaskManager.git"
-    },
-    "authors":
-    [
-      {
-        "name": "Vladimir Bogdanov",
-        "email": "gogicool.geek@gmail.com",
-        "url": "https://github.com/Gogicool-geek"
-      }
-    ],
-    "license": "MIT",
-    "frameworks": "arduino",
-    "platforms": "atmelavr"
-  }
+  "name": "ArduinoTaskManager",
+  "version": "0.1.0",
+  "description": "Manage many tasks execution centralized by software timers on Arduino",
+  "keywords": "task, manager, arduino",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Gogicool-geek/ArduinoTaskManager.git"
+  },
+  "authors": [{
+    "name": "Vladimir Bogdanov",
+    "email": "gogicool.geek@gmail.com",
+    "url": "https://github.com/Gogicool-geek"
+  }],
+  "license": "MIT",
+  "frameworks": "arduino",
+  "platforms": "atmelavr"
+}
