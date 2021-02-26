@@ -1,6 +1,6 @@
 {
   "name": "ArduinoTaskManager",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Manage many tasks execution centralized by software timers on Arduino",
   "keywords": "task, manager, arduino",
   "repository": {
@@ -14,12 +14,5 @@
   }],
   "license": "MIT",
   "frameworks": "arduino",
-  "platforms": "atmelavr",
-  "examples": [
-    {
-        "name": "TaskManager example",
-        "base": "examples",
-        "files": ["examples/task_manager_example.cpp"]
-    }
-]
+  "platforms": "atmelavr"
 }

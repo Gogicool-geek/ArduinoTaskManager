@@ -26,6 +26,7 @@ void task3_callback(void *param) { Serial.println(F("task3_callback")); }
 void setup()
 {
     Serial.begin(9600);
+    TaskManager::begin();
 
     task1 = TaskManager::add_task("Name 1",          // task name
                                   TASK_PRIORITY_MIN, // task priority
