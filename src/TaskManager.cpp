@@ -192,8 +192,8 @@ void TaskManager::show_status()
     Serial.print(F(" bytes free, "));
     Serial.print(_tasks.getSize());
     Serial.print(F(" tasks registred:\n"));
-    Serial.println(F("ID\tTask name\tStatus\tPr-t\tPd*1000\tCount\tMin\tMax\tAvr\t% E-3"));
-    Serial.println(F("--------------------------------------------------------------------------------------------------------"));
+    Serial.println(F("ID\tTask name\tStatus\tPr-t\tPd*1000\tCount\tMin\tMax\tAvr\t%"));
+    Serial.println(F("---------------------------------------------------------------------------------------"));
     for (size_t i = 0; i < _tasks.getSize(); i++)
     {
         Serial.print(_tasks.get_item_link(i)->description.id);
@@ -222,7 +222,7 @@ void TaskManager::show_status()
 #endif
         Serial.println(F(""));
     }
-    Serial.println(F("--------------------------------------------------------------------------------------------------------"));
+    Serial.println(F("---------------------------------------------------------------------------------------"));
     Serial.print(F("Together:\t\t\t\t\t"));
 #ifdef MEASURE_TASKS
     Serial.print(_totalRuntimeCount);

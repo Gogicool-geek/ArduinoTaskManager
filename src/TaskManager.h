@@ -7,17 +7,17 @@
 #define MEASURE_TASKS // флаг измерения временных характеритик задач
 
 #ifndef TASK_COUNT_MAX
-#define TASK_COUNT_MAX 40 // максимальное количество задач
+#define TASK_COUNT_MAX 10 // максимальное количество задач
 #endif
 
-#define TASK_NAME_LENGHT 8         // максимальная длина наименования задачи
-#define TASK_PRIORITY_MIN 1         // минимальный приоритет задачи
-#define TASK_PRIORITY_MAX 255       // максимальный приоритет задачи
+#define TASK_NAME_LENGHT 8    // максимальная длина наименования задачи
+#define TASK_PRIORITY_MIN 1   // минимальный приоритет задачи
+#define TASK_PRIORITY_MAX 255 // максимальный приоритет задачи
 
 typedef void (*CallBackFunc_t)(void *); // сигнатура call-back функции задачи
 typedef uint8_t Priority_t;             // тип приоритета задачи
 typedef uint32_t Period_t;              // тип счетчиков времени
-typedef uint8_t Task_t;                   // тип ID задачи
+typedef uint8_t Task_t;                 // тип ID задачи
 
 // структура используется для сбора и анализа статистики работы задач
 struct Runtime
@@ -35,7 +35,7 @@ struct Runtime
 // Структура описания задачи
 struct TaskDescription
 {
-    Task_t id;                     // id задачи
+    Task_t id;                   // id задачи
     char name[TASK_NAME_LENGHT]; // название задачи
     Priority_t priority;         // приоритет выполнения задачи (0 - самый маленький, 255 - самый большой)
     Period_t period;             // период вызова задачи, мсек.
@@ -66,12 +66,12 @@ public:
     // @param callback функция вызова задачи
     // @returns ID созданной задачи
     static Task_t add_task(const char *name,
-                         Priority_t priority,
-                         Period_t period,
-                         CallBackFunc_t callback,
-                         void *parameter,
-                         bool enable = true,
-                         bool autoReload = true);
+                           Priority_t priority,
+                           Period_t period,
+                           CallBackFunc_t callback,
+                           void *parameter,
+                           bool enable = true,
+                           bool autoReload = true);
     // перебирает все задачи и проверяет их время вызова.
     // Если время пришло, то вызывает и обновляет отладочную информации
     // @param none
