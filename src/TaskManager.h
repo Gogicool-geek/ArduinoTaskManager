@@ -10,17 +10,14 @@
 #define TASK_COUNT_MAX 40 // максимальное количество задач
 #endif
 
-#define TASK_NAME_LENGHT 16         // максимальная длина наименования задачи
+#define TASK_NAME_LENGHT 8         // максимальная длина наименования задачи
 #define TASK_PRIORITY_MIN 1         // минимальный приоритет задачи
 #define TASK_PRIORITY_MAX 255       // максимальный приоритет задачи
-#define TASK_PRIORITY_IOT 10        // приоритет задач сущностей IoT по умолчанию
-#define TASK_PRIORITY_CONTROLLER 20 // приоритет задач контроллеров по умолчанию
-#define TASK_POOLING_IOT 50         // период вызова задач сущностей IoT по умолчанию, мсек.
 
 typedef void (*CallBackFunc_t)(void *); // сигнатура call-back функции задачи
 typedef uint8_t Priority_t;             // тип приоритета задачи
 typedef uint32_t Period_t;              // тип счетчиков времени
-typedef uint8_t ID_t;                   // тип ID задачи
+typedef uint8_t Task_t;                   // тип ID задачи
 
 // структура используется для сбора и анализа статистики работы задач
 struct Runtime
@@ -38,7 +35,7 @@ struct Runtime
 // Структура описания задачи
 struct TaskDescription
 {
-    ID_t id;                     // id задачи
+    Task_t id;                     // id задачи
     char name[TASK_NAME_LENGHT]; // название задачи
     Priority_t priority;         // приоритет выполнения задачи (0 - самый маленький, 255 - самый большой)
     Period_t period;             // период вызова задачи, мсек.
@@ -56,7 +53,7 @@ typedef Collection<TaskItem, TASK_COUNT_MAX> TaskCollection;
 
 // обеспечивает централизованное управление и выполнение задачами по таймеру.
 // Не использует таймеров микроконтроллера.
-class TaskQueue
+class TaskManager
 {
 public:
     // инициализация очереди задач
@@ -68,7 +65,7 @@ public:
     // @param period период вызова задачи в мсек.
     // @param callback функция вызова задачи
     // @returns ID созданной задачи
-    static ID_t add_task(const char *name,
+    static Task_t add_task(const char *name,
                          Priority_t priority,
                          Period_t period,
                          CallBackFunc_t callback,
@@ -87,27 +84,27 @@ public:
     static uint32_t free_memory();
     // запускает сначала таймер задачи
     // @param id id задачи
-    static void reset_timer(ID_t id);
-    // разрешает работу таймеру задачи и запускает его сначача
+    static void reset_timer(Task_t id);
+    // разрешает работу таймеру задачи и запускает его сначала
     // @param id id задачи
-    static void enable_timer(ID_t id);
+    static void enable_timer(Task_t id);
     // запрещает работу таймера задачи
     // @param id id задачи
-    static void disable_timer(ID_t id);
+    static void disable_timer(Task_t id);
     // устанавливает режим автоматической перезагрузки таймера
     // @param id id задачи
     // @param isAutoReload true - цикличный таймер. false - one shot
-    static void set_autoreload(ID_t id, bool isAutoReload);
+    static void set_autoreload(Task_t id, bool isAutoReload);
     // устанавливает время таймера
     // @param id id задачи
     // @param time новое значение времени
-    static void set_time(ID_t id, Period_t time);
+    static void set_time(Task_t id, Period_t time);
     // возвращает статус работы таймера задачи
     // @param id id задачи
-    static bool is_timer_enable(ID_t id);
+    static bool is_timer_enable(Task_t id);
 
 private:
-    TaskQueue(){};
+    TaskManager(){};
     static TaskCollection _tasks; // коллекция задач
 #ifdef MEASURE_TASKS
     static uint32_t _totalRuntimeMax;   // максимальное время выполнения всех задач
@@ -118,7 +115,7 @@ private:
     // возвращает ссылку на задачу по его ID
     // @param id id задачи
     // @return ссылка на задачу в коллекции или NULL если не найдено
-    static TaskItem *get_task_link(ID_t id);
+    static TaskItem *get_task_link(Task_t id);
 };
 
 #endif

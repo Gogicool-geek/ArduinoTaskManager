@@ -1,0 +1,31 @@
+# Datatypes (KEYWORD1)
+
+TaskManager     KEYWORD1
+Collection      KEYWORD1
+TaskItem        KEYWORD1
+TaskDescription KEYWORD1
+Runtime         KEYWORD1
+Priority_t      KEYWORD1
+Period_t        KEYWORD1
+Task_t          KEYWORD1
+
+# Methods (KEYWORD2)
+
+begin           KEYWORD2
+add_task        KEYWORD2
+do_tasks        KEYWORD2
+free_memory     KEYWORD2
+reset_timer     KEYWORD2
+enable_timer    KEYWORD2
+disable_timer   KEYWORD2
+set_autoreload  KEYWORD2
+set_time        KEYWORD2
+is_timer_enable KEYWORD2
+
+# Constants (LITERAL1)
+
+MEASURE_TASKS       LITERAL1
+TASK_COUNT_MAX      LITERAL1
+TASK_NAME_LENGHT    LITERAL1
+TASK_PRIORITY_MIN   LITERAL1
+TASK_PRIORITY_MAX   LITERAL1
