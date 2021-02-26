@@ -1,6 +1,6 @@
 {
   "name": "ArduinoTaskManager",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Manage many tasks execution centralized by software timers on Arduino",
   "keywords": "task, manager, arduino",
   "repository": {
