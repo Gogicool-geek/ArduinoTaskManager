@@ -14,5 +14,12 @@
   }],
   "license": "MIT",
   "frameworks": "arduino",
-  "platforms": "atmelavr"
+  "platforms": "atmelavr",
+  "examples": [
+    {
+        "name": "TaskManager example",
+        "base": "examples",
+        "files": ["examples/task_manager_example.cpp"]
+    }
+]
 }
