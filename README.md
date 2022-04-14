@@ -109,7 +109,7 @@ Below the table with task measurments, where:
     - D timer task is disabled
     - R this is repeatable task now
     - S this task execute one time only
-- Pr-t - prioritet of the task
+- Pr-t - Task's priority
 - Pd*1000 - period of the task in msec.
 - Count - how many time paricular task was called
 - Min - min execution time in microseconds
